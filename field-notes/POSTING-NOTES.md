@@ -8,17 +8,33 @@
 | `images/` | Cover (1920x1080) + three inline PNGs (1200x628). |
 | `README.md` | The long reference version, with a file:line citation on every claim. |
 | `linkedin-post.txt` | A short feed-post variant, 2,278 chars, if you want a post instead. |
-| `tools/` | The scripts that generate the images. Re-runnable. |
+| `k9s-carousel.pdf` | **The carousel.** 10 square slides, upload as a document post. |
+| `tools/` | The scripts that generate the images and the carousel. Re-runnable. |
 
-## Article vs post — pick one
+## Three formats, three different posts
 
-- **Article** (`linkedin-article.md`) — the long-form editor. Supports real
-  formatting and inline images, no character ceiling. Use this one; it is what
-  the images were built for.
-- **Post** (`linkedin-post.txt`) — the feed. 3,000-char cap, no markdown, no
-  inline images. Kept as a fallback.
+- **Article** (`linkedin-article.md`) — the long-form editor. Real formatting,
+  inline images, no character ceiling. The main deliverable.
+- **Carousel** (`k9s-carousel.pdf`) — a document post. LinkedIn renders the PDF
+  as swipeable slides. Best reach of the three for reference material.
+- **Post** (`linkedin-post.txt`) — the plain feed post. 3,000-char cap, no
+  markdown, no inline images. A fallback.
 
-Do not post both in the same week.
+These are three separate posts, not one thing in three formats. Space them out —
+a week or two apart — and have the later one point back at the earlier.
+
+## Publishing the carousel
+
+1. Start a normal post, then choose **Add document** (not Add photo).
+2. Upload `k9s-carousel.pdf`. LinkedIn asks for a document title — that title
+   shows above the deck, so use something like
+   `k9s: the keys the cheat sheets get wrong`.
+3. Write 2-3 lines of post copy above it. The opening line of
+   `linkedin-post.txt` works as-is.
+4. Slide 10 asks the closing question and carries the repo link.
+
+The deck is 10 pages at 810x810 pt, which is 1080x1080 px — LinkedIn's square
+document format. 120 KB total, well inside any limit.
 
 ## Publishing the article
 
