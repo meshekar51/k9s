@@ -1,5 +1,9 @@
 # k9s field notes: the parts the cheat sheets get wrong
 
+> **Short, illustrated version:** [`linkedin-article.md`](linkedin-article.md) —
+> 556 words and four diagrams, written for LinkedIn's long-form editor.
+> This file is the full reference behind it.
+
 *Verified against k9s **v0.51.0** — source read at the release tag, binary run
 against a live cluster. Every keybinding below cites the file and line it comes
 from. Nothing here is quoted from another blog post.*
