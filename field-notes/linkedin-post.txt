@@ -1,0 +1,25 @@
+Every k9s cheat sheet online tells you to press :popeye for a cluster audit.
+
+I checked. In k9s v0.51.0, the string "popeye" does not appear in a single Go file in the repository.
+
+That is the problem with keybinding content — it gets copied between blog posts for six years and nobody re-runs it against the tool.
+
+So I did it the slow way. Cloned k9s at the v0.51.0 tag, ran that exact binary against a live cluster, and read the key-binding tables in the source instead of trusting anyone's summary.
+
+Four things I found that I had not seen written up properly:
+
+→ k9s has browser history. [ goes back, ] goes forward, and - jumps to the last view like "cd -" in a shell. Deployments, into pod logs, then - and you are back at deployments without retyping :deploy.
+
+→ Ctrl-Z filters the table to only what is broken. It keeps rows where a hidden VALID column is non-empty. The catch, straight from the function: if the current view has no VALID column, it returns an empty set and your table goes blank. That is not a hang. Press it again.
+
+→ The / filter is four languages, not one. Plain text is a regex. !nginx inverts it. -l app=web is a label selector. -f nginx is fuzzy. Both prefixes are anchored to the start of the string in the source, so "pods -l app=web" is NOT a label filter — it is a regex search that will quietly return nothing useful.
+
+→ Custom jumps. You can redefine what Enter does per resource type. Press Enter on a cert-manager Certificate and land on the Secret it produced. Press Enter on a Karpenter NodePool and get its Nodes. Templated over the object, so any CRD that points at another resource becomes one keystroke. If you run operators, this is the best hour you will spend on your k9s config.
+
+One honest limit: I could not determine which release actually removed popeye — I worked from a shallow clone with no history to bisect. So I am not going to guess a version. It is absent in v0.51.0. That is all I can prove.
+
+I wrote the long version up with a file-and-line citation for every claim, and put it in a repo rather than a screenshot, so anyone who finds an error can open an issue against it. Link in the first comment.
+
+What is the k9s key you wish you had learned a year earlier?
+
+#kubernetes #devops #k9s #sre #platformengineering
